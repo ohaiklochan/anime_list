@@ -1,2 +1,2 @@
-create Animelist < ActiveRecord::Base
+create AnimeList < ActiveRecord::Base
 end
