@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Anime List App</title>
+    <link href="css/style.css" rel="stylesheet"/>
+  </head>
+  <body>
+   <h1>^_^ Anime List ^_^</h1>
+    <% if logged_in? %>
+      <p style="font-family:'Courier New'" ><a href="/welcome">Home</a> <a href="/animelist">See Your Anime List!</a></p>
+        <form action="/logout" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+      <% end %>
+      <%= yield %>
+
+    
+  </body>
+</html>
