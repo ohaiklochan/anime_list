@@ -7,6 +7,7 @@
     <link href="css/style.css" rel="stylesheet"/>
   </head>
   <body>
+  <header>
    <h1>^_^ Anime List ^_^</h1>
     <% if logged_in? %>
       <p style="font-family:'Courier New'" ><a href="/welcome">Home</a> <a href="/animelist">See Your Anime List!</a></p>
@@ -15,7 +16,18 @@
           <input type="submit" value="Log Out">
         </form>
       <% end %>
-      <%= yield %>
+    
+      </header>
+
+    <div class="wrapper"> 
+    <body background="https://www.fortressofsolitude.co.za/wp-content/uploads/2019/05/The-15-Most-Powerful-Anime-Characters-Of-All-Time-1140x570.jpg"> </body>
+
+    <%= yield %>
+
+    <footer class="branding">
+        <small>&copy; 2020 <strong>Ohaiklochan/CFS</strong></small>
+      </footer>
+    </div>
 
     
   </body>
