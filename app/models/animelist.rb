@@ -1,4 +1,4 @@
 class AnimeList < ActiveRecord::Base
     belongs_to :user
-    validates :name, :type, :genre, presence: true
+    validates :name, :classification, :genre, presence: true
 end
