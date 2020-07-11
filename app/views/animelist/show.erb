@@ -1,5 +1,5 @@
-<h1>See your list? THAT YOURS! Get excited!!!! UwU</h1>
-<p>If you see an error, edit your list using the link below.</p>
+<h1>See your list? THAT'S YOURS! Get excited!!!! UwU</h1>
+<p>If you see an error, edit your list by clicking below.</p>
 
 
 <h2>Name of Anime:</h2>
@@ -13,8 +13,8 @@
 <% if @animelist.user_id == current_user.id%>
 <form action="/animelist/<%= @animelist.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%=@animelist.id%>';">Delete List</button><br>
+  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>';">Delete List</button><br>
   </form><br>
 <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/new';">New list</button><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%=@animelist.id%>/edit';">Edit List</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit List</button><br>
 <%end%>
