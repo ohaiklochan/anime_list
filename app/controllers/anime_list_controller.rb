@@ -24,10 +24,10 @@ class AnimeListController < ApplicationController
       redirect to '/animelist/new'
     end 
       if logged_in?
-        animelist = AnimeList.create(params)
-        animelist.user_id = current_user.id
-        animelist.save
-        redirect "/animelist/#{animelist.id}"
+        @animelist = AnimeList.create(params)
+        @animelist.user_id = current_user.id
+        @animelist.save
+        redirect "/animelist/#{@animelist.id}"
       end
     end
   end
@@ -56,7 +56,7 @@ class AnimeListController < ApplicationController
   @animelist = AnimeList.find(params[:id])
   if logged_in? && @animelist.user_id == current_user.id 
     @animelist.update(params[:anime_list])
-    redirect "/animelist/#{animelist.id}"
+    redirect "/animelist/#{@animelist.id}"
   else
     redirect "/animelist/new"
   end
@@ -67,7 +67,7 @@ class AnimeListController < ApplicationController
       @animelist = AnimeList.find_by(:id => params[:id]) 
     if @animelist.user == current_user
       @animelist.destroy
-      redirect to "/users/#{current_user.id}"
+      redirect to "/users/#{@current_user.id}"
     end
     else
       redirect to '/'
