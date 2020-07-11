@@ -10,7 +10,7 @@ class AnimeListController < ApplicationController
   end
     
     
-  get "/animelist/new" do
+  get "/anime_list/new" do
     if logged_in?
     erb :"/animelist/new"
     else  
@@ -34,7 +34,6 @@ class AnimeListController < ApplicationController
     
     
   get "/animelist/:id" do
-    authenticate
     if @animelist = AnimeList.find_by(:id => params[:id])
     erb :"/animelist/show"
     else  
@@ -57,7 +56,7 @@ class AnimeListController < ApplicationController
   @animelist = AnimeList.find(params[:id])
   if logged_in? && @animelist.user_id == current_user.id 
     @animelist.update(params[:anime_list])
-    redirect "/animelist/#{@animelist.id}"
+    redirect "/animelist/#{animelist.id}"
   else
     redirect "/animelist/new"
   end
