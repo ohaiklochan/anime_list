@@ -1,5 +1,5 @@
 class AddColumnToLists < ActiveRecord::Migration
   def change
-    add_column :animelist, :user_id, :integer
+    add_column :animelists, :user_id, :integer
   end
 end

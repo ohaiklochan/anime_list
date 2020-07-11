@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20200707143745) do
 
-  create_table "animelist", force: :cascade do |t|
+  create_table "animelists", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
     t.string   "genre"
