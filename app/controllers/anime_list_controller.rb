@@ -55,7 +55,7 @@ class AnimeListController < ApplicationController
   patch "/animelist/:id" do
   @animelist = AnimeList.find(params[:id])
   if logged_in? && @animelist.user_id == current_user.id 
-    @animelist.update(params[:anime])
+    @animelist.update(params[:anime_list])
     redirect "/animelist/#{@animelist.id}"
   else
     redirect "/animelist/new"

@@ -1,6 +1,6 @@
 class CreateAnimeLists < ActiveRecord::Migration
   def change
-    create_table :animelists do |t|
+    create_table :anime_lists do |t|
       t.string :name
       t.string :type
       t.string :genre
