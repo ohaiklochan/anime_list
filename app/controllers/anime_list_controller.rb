@@ -34,6 +34,7 @@ class AnimeListController < ApplicationController
     
     
   get "/animelist/:id" do
+    authenticate
     if @animelist = AnimeList.find_by(:id => params[:id])
     erb :"/animelist/show"
     else  

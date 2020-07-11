@@ -1,4 +1,4 @@
-<h1>Here are your anime lists! ^_^</h1>
+<h1>Here is anime list! ^_^</h1>
 <% @animelist.each.with_index(1) do |animelist, index| %><br>
 <strong>  <%=index%> - <label>Anime Information!</label></strong>
 <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= animelist.id %>';">View This List:</button><br>
