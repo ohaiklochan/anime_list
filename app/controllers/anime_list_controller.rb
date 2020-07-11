@@ -20,7 +20,7 @@ class AnimeListController < ApplicationController
     
     
   post "/animelist" do
-    if params[:name].empty? || params[:type].empty? || params[:genre].empty?
+    if params[:name].empty? || params[:classification].empty? || params[:genre].empty?
       redirect to '/animelist/new'
     end 
       if logged_in?

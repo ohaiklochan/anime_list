@@ -4,7 +4,7 @@
 <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= animelist.id%>';">View This List:</button><br>
     <%=animelist.name%><br>
     <%=animelist.genre%><br>
-    <%=animelist.type%><br>
+    <%=animelist.classification%><br>
     <%if animelist.user_id == current_user.id%>
      <form action="/workouts/<%= animelist.id %>" method="post">
           <input id="hidden" type="hidden" name="_method" value="delete">

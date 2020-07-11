@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200707143745) do
+ActiveRecord::Schema.define(version: 20200711222257) do
 
   create_table "anime_lists", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "classification"
     t.string   "genre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "user_id"
   end
 
