@@ -1,11 +1,11 @@
-<h1>Welcome, <%=@user.name%>! </h1>
-<p>Click on the corresponding links that you need to use!!! OwO </p>
+<h1 {text-align: center;}>Welcome, <%=@user.name%>! </h1>
+<p {text-align: center;}>Click on the corresponding links that you need to use!!! OwO </p>
 
-<%=@user.name%><br>
+<%=@user.name%>!<br>
 <%if @user.id == current_user.id%>
-<label>to add a new anime to your list, click here</label>
+<label>To add a new anime to your list, click here</label>
 <a href="/animelist/new"><button>Add Anime!</button></a><br>
-<label>To view all your Anime Lists, click here</label>
+<label>To view all your anime, click here</label>
 <a href="/animelist"><button>View your Anime Library</button></a><br>
 <label>To edit your user information, click here</label>
 <a href="/users/<%=@user.id%>/edit"><button>Edit User</button></a><br>

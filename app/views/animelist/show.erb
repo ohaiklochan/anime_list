@@ -1,5 +1,5 @@
-<h1>See your list? THAT'S YOURS! Get excited!!!! UwU</h1>
-<p>If you see an error, edit your list by clicking below.</p>
+<h1 {text-align: center;}>See that list? THAT'S YOURS! Get excited!!!! UwU</h1>
+<p {text-align: center;}>If you see an error, edit your anime by clicking below.</p>
 
 
 <h2>Name of Anime:</h2>
@@ -9,12 +9,12 @@
 <h2>Type of Anime:</h2>
 <%=@animelist.classification%><br>
 
-<label>Need to edit, delete, or make a new list? Click below:</label><br>
+<label>Need to edit, delete, or add an anime? Click below:</label><br>
 <% if @animelist.user_id == current_user.id%>
 <form action="/animelist/<%= @animelist.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>';">Delete List</button><br>
+  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>';">Delete Anime</button><br>
   </form><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/new';">New list</button><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit List</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/new';">Add an anime</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit Anime</button><br>
 <%end%>
