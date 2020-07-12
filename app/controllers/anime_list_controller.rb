@@ -10,7 +10,7 @@ class AnimeListController < ApplicationController
   end
     
     
-  get "/anime_list/new" do
+  get "/animelist/new" do
     if logged_in?
     erb :"/animelist/new"
     else  

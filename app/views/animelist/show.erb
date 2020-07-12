@@ -13,8 +13,8 @@
 <% if @animelist.user_id == current_user.id%>
 <form action="/animelist/<%= @animelist.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>';">Delete Anime</button><br>
+  <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>';">Delete Anime</button><br>
   </form><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/new';">Add an anime</button><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 15px;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit Anime</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/new';">Add an anime</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit Anime</button><br>
 <%end%>
