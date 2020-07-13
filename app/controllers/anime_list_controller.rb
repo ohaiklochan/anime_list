@@ -12,7 +12,7 @@ class AnimeListController < ApplicationController
     
   get "/animelist/new" do
     if logged_in?
-    erb :"/animelist/new"
+    erb :"/animelist/create"
     else  
       redirect to '/'
     end
@@ -24,17 +24,18 @@ class AnimeListController < ApplicationController
       redirect to '/animelist/new'
     end 
       if logged_in?
-        @animelist = AnimeList.create(params)
-        @animelist.user_id = current_user.id
-        @animelist.save
-        redirect "/animelist/#{@animelist.id}"
+        animelist = AnimeList.create(params)
+        animelist.user_id = current_user.id
+        animelist.save
+        redirect "/animelist/#{animelist.id}"
       end
     end
   end
     
     
   get "/animelist/:id" do
-    if @animelist = AnimeList.find_by(:id => params[:id])
+    if @animelist = AnimeList.find_by_id(params[:id])
+     # binding.pry
     erb :"/animelist/show"
     else  
       redirect to '/'
@@ -44,7 +45,7 @@ class AnimeListController < ApplicationController
     
   get "/animelist/:id/edit" do
     if logged_in?
-    @animelist = AnimeList.find_by(:id => params[:id])
+    @animelist = AnimeList.find_by_id(params[:id])
     erb :"/animelist/edit"
     else
       redirect to '/'
@@ -53,9 +54,10 @@ class AnimeListController < ApplicationController
     
     
   patch "/animelist/:id" do
-  @animelist = AnimeList.find(params[:id])
+  @animelist = AnimeList.find_by_id(params[:id])
+  #binding.pry
   if logged_in? && @animelist.user_id == current_user.id 
-    @animelist.update(params[:anime_lists])
+    @animelist.update(anime_lists: params[:anime_lists])
     redirect "/animelist/#{@animelist.id}"
   else
     redirect "/animelist/new"
@@ -64,9 +66,9 @@ class AnimeListController < ApplicationController
       
   delete "/animelist/:id" do
     if logged_in?
-      @animelist = AnimeList.find_by(:id => params[:id]) 
+      @animelist = AnimeList.find_by_id(params[:id]) 
     if @animelist.user == current_user
-      @animelist.destroy
+      @animelist.clear
       redirect to "/users/#{current_user.id}"
     end
     else
