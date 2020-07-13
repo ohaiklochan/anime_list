@@ -1,15 +1,15 @@
 <h1>Here is your anime list! ^_^</h1>
 <% @animelist.each.with_index(1) do |animelist, index| %><br>
 <strong>  <%=index%> - <label>Anime Information!</label></strong>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>';">View This Anime</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%=animelist.id%>';">View This Anime</button><br>
     <%=animelist.name%><br>
     <%=animelist.genre%><br>
     <%=animelist.classification%><br>
     <%if animelist.user_id == current_user.id%>
-     <form action="/workouts/<%= animelist.id %>" method="post">
+     <form action="/animelist/<%= animelist.id %>" method="post">
           <input id="hidden" type="hidden" name="_method" value="delete">
           </form>
-        <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>/edit';">Edit Anime</button>
-         <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>';">Delete Anime</button>
+        <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%=animelist.id%>/edit';">Edit Anime</button>
+         <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%=animelist.id%>';">Delete Anime</button>
     <%end%>
 <% end %><br>
