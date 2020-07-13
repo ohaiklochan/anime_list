@@ -3,18 +3,18 @@
 
 
 <h2>Name of Anime:</h2>
-<%=@animelist.name%><br>
+<%=animelist.name%><br>
 <h2>Genre of Anime:</h2>
-<%=@animelist.genre%><br>
+<%=animelist.genre%><br>
 <h2>Type of Anime:</h2>
-<%=@animelist.classification%><br>
+<%=animelist.classification%><br>
 
 <label>Need to edit, delete, or add an anime? Click below:</label><br>
-<% if @animelist.user_id == current_user.id%>
-<form action="/animelist/<%= @animelist.id %>" method="post">
+<% if animelist.user_id == current_user.id%>
+<form action="/animelist/<%= animelist.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>';">Delete Anime</button><br>
   </form><br>
 <button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/new';">Add an anime</button><br>
-<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= @animelist.id %>/edit';">Edit Anime</button><br>
+<button style="width:175px; margin:10px; padding:5px; border-color:black; border-radius: 50%;" onclick="window.location.href ='/animelist/<%= animelist.id %>/edit';">Edit Anime</button><br>
 <%end%>
