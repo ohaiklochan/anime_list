@@ -11,13 +11,24 @@ class UserController < ApplicationController
       
   end
     
+  # post '/signup' do 
+  #   if params[:username].empty? || params[:password].empty?
+  #     redirect to '/'
+  #   elsif user = User.find_by(:username => params[:username])
+  #     redirect to '/'
+  #   else
+  #     user = User.create(params)
+  #     session[:user_id] = user.id
+  #     redirect to "/users/#{user.id}"
+  #   end
+  # end
+  
   post '/signup' do 
-    if params[:username].empty? || params[:password].empty?
-      redirect to '/'
-    elsif user = User.find_by(:username => params[:username])
+    user = User.new(params)
+    if !user.valid?
       redirect to '/'
     else
-      user = User.create(params)
+      user.save
       session[:user_id] = user.id
       redirect to "/users/#{user.id}"
     end
@@ -39,6 +50,14 @@ class UserController < ApplicationController
     end
   end
     
+  get "/users/animelist" do
+    if logged_in?
+      @animelist = current_user.anime_lists
+      erb :"/animelist/index"
+    else
+      redirect to '/'
+    end
+  end
       
   get "/users/:id" do
     if logged_in?
@@ -48,6 +67,7 @@ class UserController < ApplicationController
       redirect to '/'
     end
   end
+
     
   get "/users/:id/edit" do 
     if logged_in?
@@ -57,6 +77,7 @@ class UserController < ApplicationController
       redirect to '/'
     end
   end
+      
     
   patch "/users/:id" do 
     @user = User.find_by(:id => params[:id])
